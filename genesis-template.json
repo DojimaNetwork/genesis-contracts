@@ -30,15 +30,15 @@
   "alloc": {
     "0000000000000000000000000000000000001000": {
       "balance": "0x0",
-      "code": "0x{{borValidatorSetContract}}"
+      "code": "0x{{dojimaValidatorSetContract}}"
     },
     "0000000000000000000000000000000000001001": {
       "balance": "0x0",
-      "code": "0x{{borStateReceiverContract}}"
+      "code": "0x{{dojimaStateReceiverContract}}"
     },
     "0000000000000000000000000000000000001010": {
-      "balance": "{{ maticChildERC20ContractBalance }}",
-      "code": "0x{{maticChildERC20Contract}}"
+      "balance": "{{ dojimaChildERC20ContractBalance }}",
+      "code": "0x{{dojimaChildERC20Contract}}"
     }{% for v in validators %},
     "{{ v.address.replace('0x', '') }}": {
       "balance": "{{ v.balance }}"

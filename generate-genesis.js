@@ -7,10 +7,10 @@ const web3 = require("web3")
 const validators = require("./validators")
 
 // load and execute bor validator set
-require("./generate-borvalidatorset")
+require("./generate-bulldogvalidatorset")
 
 program.version("0.0.1")
-program.option("-c, --bor-chain-id <bor-chain-id>", "Bor chain id", "15001")
+program.option("-c, --bulldog-chain-id <bulldog-chain-id>", "Bulldog chain id", "1001")
 program.option(
   "-o, --output <output-file>",
   "Genesis json file",
@@ -65,19 +65,19 @@ function compileContract(key, contractFile, contractName) {
 // compile files
 Promise.all([
   compileContract(
-    "borValidatorSetContract",
-    "contracts/BorValidatorSet.sol",
+    "dojimaValidatorSetContract",
+    "contracts/BulldogValidatorSet.sol",
     "BorValidatorSet"
   ),
   compileContract(
-    "borStateReceiverContract",
+    "dojimaStateReceiverContract",
     "contracts/StateReceiver.sol",
     "StateReceiver"
   ),
   compileContract(
-    "maticChildERC20Contract",
-    "watchman-contracts/contracts/child/MRC20.sol",
-    "MRC20"
+    "dojimaChildERC20Contract",
+    "watchman-contracts/contracts/child/DRC20.sol",
+    "DRC20"
   )
 ]).then(result => {
   const totalMaticSupply = web3.utils.toBN("10000000000")
@@ -90,9 +90,9 @@ Promise.all([
 
   const contractBalance = totalMaticSupply.sub(validatorsBalance)
   const data = {
-    chainId: program.borChainId,
+    chainId: program.bulldogChainId,
     validators: validators,
-    maticChildERC20ContractBalance: web3.utils.toHex(
+    dojimaChildERC20ContractBalance: web3.utils.toHex(
       web3.utils.toWei(contractBalance.toString())
     )
   }

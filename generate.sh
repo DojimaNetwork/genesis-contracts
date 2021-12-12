@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # Usage: 
-# generate.sh 15001 heimdall-15001
+# generate.sh 1001 heimdall-1001
 
 set -x #echo on
 
@@ -23,9 +23,9 @@ git submodule init
 git submodule update
 cd watchman-contracts
 npm install
-node scripts/process-templates.js --bor-chain-id $1
+node scripts/process-templates.js --bulldog-chain-id $1
 npm run truffle:compile
 cd ..
-node generate-borvalidatorset.js --bor-chain-id $1 --heimdall-chain-id $2
+node generate-borvalidatorset.js --bulldog-chain-id $1 --watchman-chain-id $2
 npm run truffle:compile
-node generate-genesis.js --bor-chain-id $1 --heimdall-chain-id $2
+node generate-genesis.js --bulldog-chain-id $1 --watchman-chain-id $2

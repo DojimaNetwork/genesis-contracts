@@ -5,11 +5,11 @@ const web3 = require("web3")
 const validators = require("./validators")
 
 program.version("0.0.1")
-program.option("--bor-chain-id <bor-chain-id>", "Bor chain id", "15001")
+program.option("--bulldog-chain-id <bulldog-chain-id>", "Bulldog chain id", "1001")
 program.option(
-  "--heimdall-chain-id <heimdall-chain-id>",
-  "Heimdall chain id",
-  "heimdall-P5rXwg"
+  "--watchman-chain-id <watchman-chain-id>",
+  "Watchman chain id",
+  "watchman-1001"
 )
 program.option(
   "--first-end-block <first-end-block>",
@@ -18,13 +18,13 @@ program.option(
 )
 program.option(
   "-o, --output <output-file>",
-  "BorValidatorSet.sol",
-  "./contracts/BorValidatorSet.sol"
+  "BulldogValidatorSet.sol",
+  "./contracts/BulldogValidatorSet.sol"
 )
 program.option(
   "-t, --template <template>",
-  "BorValidatorSet template file",
-  "./contracts/BorValidatorSet.template"
+  "BulldogValidatorSet template file",
+  "./contracts/BulldogValidatorSet.template"
 )
 program.parse(process.argv)
 
@@ -34,8 +34,8 @@ validators.forEach(v => {
 })
 
 const data = {
-  borChainId: program.borChainId,
-  heimdallChainId: program.heimdallChainId,
+  bulldogChainId: program.bulldogChainId,
+  watchmanChainId: program.watchmanChainId,
   firstEndBlock: program.firstEndBlock,
   validators: validators
 }
