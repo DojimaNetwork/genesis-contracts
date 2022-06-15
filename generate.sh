@@ -23,9 +23,9 @@ git submodule init
 git submodule update
 cd watchman-contracts
 npm install
-node scripts/process-templates.js --bulldog-chain-id $1
+node scripts/process-templates.js --dojima-chain-id $1
 npm run truffle:compile
 cd ..
-node generate-borvalidatorset.js --bulldog-chain-id $1 --watchman-chain-id $2
+node generate-borvalidatorset.js --dojima-chain-id $1 --hermes-chain-id $2
 npm run truffle:compile
-node generate-genesis.js --bulldog-chain-id $1 --watchman-chain-id $2
+node generate-genesis.js --dojima-chain-id $1 --hermes-chain-id $2

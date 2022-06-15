@@ -10,7 +10,7 @@ const validators = require("./validators")
 require("./generate-bulldogvalidatorset")
 
 program.version("0.0.1")
-program.option("-c, --bulldog-chain-id <bulldog-chain-id>", "Bulldog chain id", "1001")
+program.option("-c, --dojima-chain-id <dojima-chain-id>", "Bulldog chain id", "1001")
 program.option(
   "-o, --output <output-file>",
   "Genesis json file",
@@ -90,7 +90,7 @@ Promise.all([
 
   const contractBalance = totalMaticSupply.sub(validatorsBalance)
   const data = {
-    chainId: program.bulldogChainId,
+    chainId: program.dojimaChainId,
     validators: validators,
     dojimaChildERC20ContractBalance: web3.utils.toHex(
       web3.utils.toWei(contractBalance.toString())

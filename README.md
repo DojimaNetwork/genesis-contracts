@@ -14,17 +14,17 @@ $ git submodule update
 ```bash
 $ cd watchman-contracts
 $ npm install
-$ node scripts/process-templates.js --bulldog-chain-id <bulldog-chain-id>
+$ node scripts/process-templates.js --dojima-chain-id <dojima-chain-id>
 $ npm run truffle:compile
 $ cd ..
 ```
 
 ### 3. Generate Bulldog validator set sol file
 
-Following command will generate `BulldogValidatorSet.sol` file from `BulldogValidatorSet.template` file.
+Following command will generate `DojimaValidatorSet.sol` file from `DojimaValidatorSet.template` file.
 
 ```bash
-# Generate Bulldog validator set using stake and balance
+# Generate dojima validator set using stake and balance
 # Modify validators.json before as per your need
 $ git submodule foreach git merge origin master
 ```
@@ -40,7 +40,7 @@ Following command will generate `genesis.json` file from `genesis-template.json`
 
 ```bash
 # Generate genesis file
-$ node generate-genesis.js --bulldog-chain-id <bulldog-chain-id> --watchman-chain-id <watchman-chain-id>
+$ node generate-genesis.js --dojima-chain-id <dojima-chain-id> --hermes-chain-id <hermes-chain-id>
 ```
 
 ### 6. Run Tests

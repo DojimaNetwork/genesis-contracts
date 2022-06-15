@@ -5,11 +5,11 @@ const web3 = require("web3")
 const validators = require("./validators")
 
 program.version("0.0.1")
-program.option("--bulldog-chain-id <bulldog-chain-id>", "Bulldog chain id", "1001")
+program.option("--dojima-chain-id <dojima-chain-id>", "Dojima chain id", "1001")
 program.option(
-  "--watchman-chain-id <watchman-chain-id>",
-  "Watchman chain id",
-  "watchman-1001"
+  "--hermes-chain-id <hermes-chain-id>",
+  "Hermes chain id",
+  "hermes-1001"
 )
 program.option(
   "--first-end-block <first-end-block>",
@@ -18,13 +18,13 @@ program.option(
 )
 program.option(
   "-o, --output <output-file>",
-  "BulldogValidatorSet.sol",
-  "./contracts/BulldogValidatorSet.sol"
+  "DojimaValidatorSet.sol",
+  "./contracts/DojimaValidatorSet.sol"
 )
 program.option(
   "-t, --template <template>",
-  "BulldogValidatorSet template file",
-  "./contracts/BulldogValidatorSet.template"
+  "DojimaValidatorSet template file",
+  "./contracts/DojimaValidatorSet.template"
 )
 program.parse(process.argv)
 
@@ -34,12 +34,12 @@ validators.forEach(v => {
 })
 
 const data = {
-  bulldogChainId: program.bulldogChainId,
-  watchmanChainId: program.watchmanChainId,
+  dojimaChainId: program.dojimaChainId,
+  hermesChainId: program.hermesChainId,
   firstEndBlock: program.firstEndBlock,
   validators: validators
 }
 const templateString = fs.readFileSync(program.template).toString()
 const resultString = nunjucks.renderString(templateString, data)
 fs.writeFileSync(program.output, resultString)
-console.log("Bor validator set file updated.")
+console.log("Dojima validator set file updated.")
