@@ -21,7 +21,7 @@ npm install
 npm run truffle:compile
 git submodule init
 git submodule update
-cd watchman-contracts
+cd dojima-contracts
 npm install
 node scripts/process-templates.js --dojima-chain-id $1
 npm run truffle:compile

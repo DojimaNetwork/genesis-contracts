@@ -12,14 +12,14 @@ $ git submodule update
 
 ### 2. Compile Dojima contracts
 ```bash
-$ cd watchman-contracts
+$ cd dojima-contracts
 $ npm install
 $ node scripts/process-templates.js --dojima-chain-id <dojima-chain-id>
 $ npm run truffle:compile
 $ cd ..
 ```
 
-### 3. Generate Bulldog validator set sol file
+### 3. Generate Dojima validator set sol file
 
 Following command will generate `DojimaValidatorSet.sol` file from `DojimaValidatorSet.template` file.
 

@@ -76,7 +76,7 @@ Promise.all([
   ),
   compileContract(
     "dojimaChildERC20Contract",
-    "watchman-contracts/contracts/child/DRC20.sol",
+    "dojima-contracts/contracts/child/DRC20.sol",
     "DRC20"
   )
 ]).then(result => {

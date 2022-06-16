@@ -1,6 +1,6 @@
 node_modules/
 build/
-contracts/BulldogValidatorSet.sol
+contracts/DojimaValidatorSet.sol
 
 pids
 logs
