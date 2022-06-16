@@ -7,7 +7,7 @@ const web3 = require("web3")
 const validators = require("./validators")
 
 // load and execute bor validator set
-require("./generate-bulldogvalidatorset")
+require("./generate-dojimavalidatorset")
 
 program.version("0.0.1")
 program.option("-c, --dojima-chain-id <dojima-chain-id>", "Bulldog chain id", "1001")

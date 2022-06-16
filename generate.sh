@@ -26,6 +26,6 @@ npm install
 node scripts/process-templates.js --dojima-chain-id $1
 npm run truffle:compile
 cd ..
-node generate-borvalidatorset.js --dojima-chain-id $1 --hermes-chain-id $2
+node generate-dojimavalidatorset.js --dojima-chain-id $1 --hermes-chain-id $2
 npm run truffle:compile
 node generate-genesis.js --dojima-chain-id $1 --hermes-chain-id $2
