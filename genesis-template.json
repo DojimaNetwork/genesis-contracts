@@ -11,7 +11,7 @@
     "petersburgBlock": 0,
     "istanbulBlock": 0,
     "muirGlacierBlock": 0,
-    "bor": {
+    "dojimachain": {
       "period": 1,
       "producerDelay": 4,
       "sprint": 64,

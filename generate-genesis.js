@@ -6,11 +6,11 @@ const web3 = require("web3")
 
 const validators = require("./validators")
 
-// load and execute bor validator set
+// load and execute DojimaChain validator set
 require("./generate-dojimavalidatorset")
 
 program.version("0.0.1")
-program.option("-c, --dojima-chain-id <dojima-chain-id>", "Bulldog chain id", "1001")
+program.option("-c, --dojima-chain-id <dojima-chain-id>", "Dojima chain id", "1001")
 program.option(
   "-o, --output <output-file>",
   "Genesis json file",
@@ -35,7 +35,7 @@ function compileContract(key, contractFile, contractName) {
       // "--optimize-runs",
       // "200",
       contractFile
-    ])
+    ],{shell: true})
 
     const result = []
     ls.stdout.on("data", data => {
@@ -66,8 +66,8 @@ function compileContract(key, contractFile, contractName) {
 Promise.all([
   compileContract(
     "dojimaValidatorSetContract",
-    "contracts/BulldogValidatorSet.sol",
-    "BorValidatorSet"
+    "contracts/DojimaValidatorSet.sol",
+    "DojimaValidatorSet"
   ),
   compileContract(
     "dojimaStateReceiverContract",
@@ -80,7 +80,7 @@ Promise.all([
     "DRC20"
   )
 ]).then(result => {
-  const totalMaticSupply = web3.utils.toBN("10000000000")
+  const totalDojSupply = web3.utils.toBN("10000000000")
 
   var validatorsBalance = web3.utils.toBN(0)
   validators.forEach(v => {
@@ -88,7 +88,7 @@ Promise.all([
     v.balance = web3.utils.toHex(web3.utils.toWei(String(v.balance)))
   })
 
-  const contractBalance = totalMaticSupply.sub(validatorsBalance)
+  const contractBalance = totalDojSupply.sub(validatorsBalance)
   const data = {
     chainId: program.dojimaChainId,
     validators: validators,

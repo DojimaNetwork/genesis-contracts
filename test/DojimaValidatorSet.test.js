@@ -1,24 +1,24 @@
 const ethUtils = require('ethereumjs-util')
 const crypto = require('crypto')
 
-const TestBorValidatorSet = artifacts.require('TestBorValidatorSet')
+const TestDojimaValidatorSet = artifacts.require('TestDojimaValidatorSet')
 const BN = ethUtils.BN
 
-contract('BorValidatorSet', async (accounts) => {
+contract('DojimaValidatorSet', async (accounts) => {
     describe('Initial values', async () => {
         let testBVS
 
         before(async function () {
-            testBVS = await TestBorValidatorSet.deployed()
+            testBVS = await TestDojimaValidatorSet.deployed()
         })
         it('span for 0th block be 0', async () => {
             const span = await testBVS.getSpanByBlock(0)
             assertBigNumberEquality(span, new BN(0))
         })
         it('Validator set be default', async () => {
-            const validators = await testBVS.getBorValidators(255)
-            assert.strictEqual(validators[0][0], "0x6c468CF8c9879006E22EC4029696E005C2319C9D") // check address in validators.js
-            assertBigNumberEquality(validators[1], new BN(40))   // check power
+            const validators = await testBVS.getDojimaValidators(255)
+            assert.strictEqual(validators[0][0], "0xD526D5f47f863eFf32B99bC4F9e77DdB4bD2929b") // check address in validators.js
+            assertBigNumberEquality(validators[1], new BN(100))   // check power
         })
         it('Default validator stake', async () => {
             const validatorTotalStake = await testBVS.getValidatorsTotalStakeBySpan(0)
@@ -30,7 +30,7 @@ contract('BorValidatorSet', async (accounts) => {
         let totalStake = 0
 
         before(async function () {
-            testBVS = await TestBorValidatorSet.deployed()
+            testBVS = await TestDojimaValidatorSet.deployed()
             testBVS.setSystemAddress(accounts[0])
         })
         it('should revert because of incorrect validator data', async () => {
@@ -76,7 +76,7 @@ contract('BorValidatorSet', async (accounts) => {
             assertBigNumberEquality(nextSpan, new BN(1))
         })
         it('Producer set for span #1', async () => {
-            const producers = await testBVS.getBorValidators(500)
+            const producers = await testBVS.getDojimaValidators(500)
             for (let i = 0; i < this.producers.length; i++) {
                 assert.strictEqual(producers[0][i], this.producers[i][2])
                 assertBigNumberEquality(producers[1][i], this.producers[i][1])

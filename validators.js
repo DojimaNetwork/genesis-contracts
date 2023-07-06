@@ -1,14 +1,14 @@
 const validators = [
   {
-    address: "0x01c1aC601CDFd1D0a11Faa3DcCcd78EFbD0669CC",
+    address: "0xD526D5f47f863eFf32B99bC4F9e77DdB4bD2929b",
     stake: 100, // without 10^18
-    balance: 1000 // without 10^18
+    balance: 5000000000 // without 10^18
   },
-  {
-    address: "0x265e016835494F05170E460Dad7a9380Bd3a1BFf",
-    stake: 100, // without 10^18
-    balance: 1000 // without 10^18
-  },
+  // {
+  //   address: "0x265e016835494F05170E460Dad7a9380Bd3a1BFf",
+  //   stake: 100, // without 10^18
+  //   balance: 1000 // without 10^18
+  // },
   // {
   //   address: "0x48aA8D4AF32551892FCF08Ad63Be7dD206D46F65",
   //   stake: 30,

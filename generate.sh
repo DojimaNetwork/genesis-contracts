@@ -1,19 +1,19 @@
 #!/usr/bin/env sh
 
 # Usage: 
-# generate.sh 1001 heimdall-1001
+# generate.sh 1001 hermes-1001
 
 set -x #echo on
 
 if [ -z "$1" ]
   then
-    echo "Bor chain id is required first argument"
+    echo "Dojima chain id is required first argument"
   exit 1
 fi
 
 if [ -z "$2" ]
   then
-    echo "Heimdall chain id is required as second argument"
+    echo "Hermes chain id is required as second argument"
   exit 1
 fi
 

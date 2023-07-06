@@ -1,7 +1,7 @@
 const bluebird = require('bluebird')
 
-const BorValidatorSet = artifacts.require('BorValidatorSet')
-const TestBorValidatorSet = artifacts.require('TestBorValidatorSet')
+const DojimaValidatorSet = artifacts.require('DojimaValidatorSet')
+const TestDojimaValidatorSet = artifacts.require('TestDojimaValidatorSet')
 const BytesLib = artifacts.require('BytesLib')
 const ECVerify = artifacts.require('ECVerify')
 const IterableMapping = artifacts.require('IterableMapping')
@@ -16,11 +16,11 @@ const ValidatorVerifier = artifacts.require('ValidatorVerifier')
 const libDeps = [
     {
         lib: BytesLib,
-        contracts: [BorValidatorSet, TestBorValidatorSet]
+        contracts: [DojimaValidatorSet, TestDojimaValidatorSet]
     },
     {
         lib: ECVerify,
-        contracts: [BorValidatorSet, TestBorValidatorSet]
+        contracts: [DojimaValidatorSet, TestDojimaValidatorSet]
     },
     {
         lib: IterableMapping,
@@ -28,11 +28,11 @@ const libDeps = [
     },
     {
         lib: RLPReader,
-        contracts: [BorValidatorSet, TestBorValidatorSet, StateReciever, TestStateReceiver]
+        contracts: [DojimaValidatorSet, TestDojimaValidatorSet, StateReciever, TestStateReceiver]
     },
     {
         lib: SafeMath,
-        contracts: [BorValidatorSet, TestBorValidatorSet, StateReciever, TestStateReceiver]
+        contracts: [DojimaValidatorSet, TestDojimaValidatorSet, StateReciever, TestStateReceiver]
     }
 ]
 
@@ -46,8 +46,8 @@ module.exports = async function (deployer, network) {
 
         console.log("Deploying contracts...")
         await Promise.all([
-            deployer.deploy(BorValidatorSet),
-            deployer.deploy(TestBorValidatorSet),
+            deployer.deploy(DojimaValidatorSet),
+            deployer.deploy(TestDojimaValidatorSet),
             deployer.deploy(StateReciever),
             deployer.deploy(TestStateReceiver),
             deployer.deploy(System),
